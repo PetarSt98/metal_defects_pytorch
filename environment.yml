@@ -1,0 +1,19 @@
+name: semicon
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - cudatoolkit=11.3
+  - cudnn=8.4.1
+  - python=3.9
+  - pytorch=1.12.0
+  - torchvision==0.13.0
+  - pip
+  - pip:
+      - opencv-python
+      - Pillow
+      - pandas
+      - seaborn
+      - matplotlib
+      - scikit-learn
