@@ -18,6 +18,7 @@ DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 TRAIN_DIR = './../dataset/train/'
 VAL_DIR = './../dataset/valid/'
 TEST_DIR = './../dataset/test/'
+TEST_GAN_DIR = './../vae_dataset/test/'
 DATASET_DIR = './../dataset/'
 EPOCHS = 30
 LR = 1e-4
@@ -27,7 +28,8 @@ LABELS = ['Crazing', 'Inclusion', 'Patches', 'Pitted', 'Rolled', 'Scratches']
 SAVE_MODEL_PATH = './'
 LOAD_MODEL_PATH = './'
 
-transformations = transforms.Compose([transforms.Resize((200, 200), Image.Resampling.NEAREST), transforms.ToTensor()])
+transformations = transforms.Compose([transforms.ToTensor(), transforms.Resize((64, 64)),
+                                      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 print(DEVICE)
 print(torch.__version__)
